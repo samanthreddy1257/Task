@@ -1,0 +1,20 @@
+pipeline {
+agent any
+
+
+
+stages {
+stage('checkout code form git repo') {
+steps {
+checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/samanthreddy1257/Task.git']]])'
+}
+}
+
+stage('Execute Selenium Tests from Github Repo') {
+steps {
+bat "mvn -f openmrs clean"
+bat "mvn -f openmrs test -P QA"
+}
+}
+}
+}
