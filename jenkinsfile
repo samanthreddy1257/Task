@@ -3,7 +3,9 @@ pipeline {
     stages { 
         stage('Cloning our Git') { 
             steps { 
-                git 'https://github.com/samanthreddy1257/Task.git/webdrive.bat' 
+                git 'https://github.com/samanthreddy1257/Task.git' 
             }
-        } 
-        
+        }
+    }
+    
+}
